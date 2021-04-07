@@ -8,7 +8,7 @@ public class Test {
     public static void main(String[] args) {
         MyApplicationContext ac = new MyAnnotationConfigApplicationContext(MyAppConfig.class);
         StudentBizImpl hw = (StudentBizImpl) ac.getBean("studentBizImpl");
-        hw.add("abc");
+        hw.add("abcd");
     }
 }
 
