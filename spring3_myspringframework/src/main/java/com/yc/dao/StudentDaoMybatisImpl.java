@@ -2,12 +2,7 @@ package com.yc.dao;
 
 import java.util.Random;
 
-/**
- * @program: TestSpring
- * @description:
- * @author: 作者 :林木木
- * @create: 2021-04-04 14:48
- */
+ 
 //@MyRepository
 public class StudentDaoMybatisImpl implements StudentDao {
     @Override

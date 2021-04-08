@@ -4,12 +4,7 @@ import com.yc.springframework.stereotype.MyRepository;
 
 import java.util.Random;
 
-/**
- * @program: TestSpring
- * @description:
- * @author: 作者 :林木木
- * @create: 2021-04-04 14:46
- */
+ 
 @MyRepository
 public class StudentDaoJpaImpl implements StudentDao {
     @Override

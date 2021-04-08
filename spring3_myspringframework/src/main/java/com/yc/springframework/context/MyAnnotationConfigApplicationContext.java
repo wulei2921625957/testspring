@@ -13,7 +13,7 @@ import java.net.URLClassLoader;
 import java.util.*;
 
 public class MyAnnotationConfigApplicationContext implements MyApplicationContext {
-    private Map<String, Object> beanMap = new HashMap<String, Object>();
+    private Map<String, Object> beanMap = new HashMap();
     //BeanDefinition
     //private Map<String, Class> classMap = new HashMap<String, Class>();
 
@@ -30,7 +30,6 @@ public class MyAnnotationConfigApplicationContext implements MyApplicationContex
             throw new RuntimeException("没有指定配置类");
         }
         for (Class cl : componentClasses) {
-            //请实现这个里面的代码
             //原码1:   只实现IOC, MyPostConstruct   MyPreDestroy
             if (!cl.isAnnotationPresent(MyConfiguration.class)) {
                 continue;
