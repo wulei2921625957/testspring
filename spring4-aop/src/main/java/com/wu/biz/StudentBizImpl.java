@@ -4,16 +4,13 @@ package com.wu.biz;
 import com.wu.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-/**
- * @program: TestSpring
- * @description:
- * @author: 作者 :林木木
- * @create: 2021-04-04 14:49
- */
-@Component
+ 
+@Service
 public class StudentBizImpl {
+    @Autowired
+    @Qualifier("studentDaoJpaImpl")
     private StudentDao studentDao;
 
     public StudentBizImpl(StudentDao studentDao) {
@@ -23,15 +20,15 @@ public class StudentBizImpl {
     public StudentBizImpl() {
     }
 
-    public StudentDao getStudentDao() {
-        return studentDao;
-    }
-
-    @Autowired
-    @Qualifier("studentDaoJpaImpl")
-    public void setStudentDao(StudentDao studentDao) {
-        this.studentDao = studentDao;
-    }
+//    public StudentDao getStudentDao() {
+//        return studentDao;
+//    }
+//
+//    @Autowired
+//    @Qualifier("studentDaoJpaImpl")
+//    public void setStudentDao(StudentDao studentDao) {
+//        this.studentDao = studentDao;
+//    }
 
     public int add(String name) {
         System.out.println("----------添加----------");
