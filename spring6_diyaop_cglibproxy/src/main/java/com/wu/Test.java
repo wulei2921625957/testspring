@@ -9,6 +9,7 @@ import com.wu.biz.StudentImpl;
  */
 public class Test {
     public static void main(String[] args) {
+
         StudentImpl target = new StudentImpl();
 
         LogAspectCGLIB logAspect = new LogAspectCGLIB(target);

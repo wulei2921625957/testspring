@@ -7,6 +7,7 @@ package com.wu.biz;
  */
 
 public class StudentImpl implements Student {
+
     @Override
     public int add(String name) {
         System.out.println("调用了Student的add()方法");
