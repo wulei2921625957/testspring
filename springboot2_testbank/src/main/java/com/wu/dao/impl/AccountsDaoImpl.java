@@ -1,14 +1,13 @@
-package com.wu.tx.dao.impl;
+package com.wu.dao.impl;
 
-import com.wu.tx.Bean.Accounts;
-import com.wu.tx.dao.AccountsDao;
+import com.wu.dao.AccountsDao;
+import com.wu.pojo.Accounts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.util.List;
 
@@ -18,16 +17,10 @@ import java.util.List;
  * @create: 2021-04-14 20:27
  */
 @Repository
-//@Transactional
-public class AccountDaoImpl implements AccountsDao {
-
-    private JdbcTemplate jdbcTemplate;
+public class AccountsDaoImpl implements AccountsDao {
 
     @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
-    }
-
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public int saveAccount(Accounts account) {
@@ -42,7 +35,6 @@ public class AccountDaoImpl implements AccountsDao {
             return ps;
         }, keyHolder);
         Number key = keyHolder.getKey();
-
         return key.intValue();
     }
 
@@ -62,7 +54,6 @@ public class AccountDaoImpl implements AccountsDao {
             accounts.setBalance(rs.getInt("BALANCE"));
             return accounts;
         }, accountId);
-
         return accounts1;
     }
 

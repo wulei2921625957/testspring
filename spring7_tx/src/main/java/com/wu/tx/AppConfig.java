@@ -4,6 +4,9 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
@@ -15,7 +18,8 @@ import java.beans.PropertyVetoException;
  */
 
 @Configuration
-@ComponentScan(basePackages = {"com.wu"})
+@ComponentScan(basePackages = {"com.wu.tx"})
+@EnableTransactionManagement
 public class AppConfig {
 
     @Bean
@@ -26,5 +30,11 @@ public class AppConfig {
         ((ComboPooledDataSource) ds).setUser("root");
         ((ComboPooledDataSource) ds).setPassword("Wl123456");
         return ds;
+    }
+
+    //创建事务管理器（注入数据源）
+    @Bean
+    public TransactionManager DataSourceTransactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 }
