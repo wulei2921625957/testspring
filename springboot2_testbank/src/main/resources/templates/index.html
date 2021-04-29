@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>银行ATM系统</title>
+    <style>
+        .err {
+            color: red;
+            font-weight: bold;
+        }
+
+        .point {
+            color: aqua;
+            font-weight: bolder;
+        }
+
+        .main_con {
+            width: 100%;
+            height: 250px;
+            margin-top: 10px;
+            margin-left: 350px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main_con" id="app">
+    <h1>银行ATM在线系统</h1>
+    <form>
+        账户：<input type="text" name="accountId" v-model="accountId"/><br/>
+        操作金额：<input type="text" name="money" v-model="money"/><br/>
+        转入账户：<input type="text" name="inAccountId" v-model="inAccountId"/><br/>
+        <input type="button" id="open" value="开户" @click="OpenAccounts"/>
+        <input type="button" id="withdraw" value="取款"/>
+        <input type="button" id="deposite" value="存款"/>
+        <input type="button" value="转账"/>
+        <input type="button" value="查询"/>
+
+
+        <div id="result" v-html="result"></div>
+    </form>
+</div>
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/axios.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+</body>
+
+</html>

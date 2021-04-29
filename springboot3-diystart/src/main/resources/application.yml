@@ -1,0 +1,26 @@
+yc:
+  isopen: true
+wu:
+  starter:
+    content: hello world
+    name: wl
+  connection:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Wl123456
+    url: jdbc:mysql://123.56.247.7:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+  #logging:
+  #  level:
+  #    root: debug
+  #    com.wu: debug
+  #    org.springframework: debug
+  #  file:
+  #    path: ./logs
+  #    name: wu-spring.log
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    dateformat: yy-MM-dd HH:mm:ss.sss #时间格式指定
+server:
+  servlet:
+    context-path: /wu

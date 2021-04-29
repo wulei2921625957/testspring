@@ -1,0 +1,24 @@
+2021-04-24 19:40:26.996  INFO 16832 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 16832 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:40:26.996  INFO 16832 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:40:30.100  INFO 16832 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.513 seconds (JVM running for 4.669)
+2021-04-24 19:41:45.007  INFO 22780 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 22780 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:41:45.017  INFO 22780 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:41:48.211  INFO 22780 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.64 seconds (JVM running for 4.822)
+2021-04-24 19:42:04.969  INFO 15296 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 15296 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:42:04.969  INFO 15296 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:42:08.264  INFO 15296 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.724 seconds (JVM running for 4.92)
+2021-04-24 19:43:06.564  INFO 22800 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 22800 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:43:06.564  INFO 22800 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:43:09.780  INFO 22800 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.671 seconds (JVM running for 4.894)
+2021-04-24 19:43:32.365  INFO 10616 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 10616 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:43:32.375  INFO 10616 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:43:35.821  INFO 10616 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.925 seconds (JVM running for 5.192)
+2021-04-24 19:45:08.533  INFO 18480 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 18480 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:45:08.533  INFO 18480 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:45:11.807  INFO 18480 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.841 seconds (JVM running for 5.246)
+2021-04-24 19:45:33.091  INFO 9004 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 9004 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:45:33.101  INFO 9004 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:45:36.338  INFO 9004 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 3.686 seconds (JVM running for 4.856)
+2021-04-24 19:46:21.676  INFO 12720 --- [main] c.w.service.impl.AccountServiceImplTest  : Starting AccountServiceImplTest using Java 1.8.0_251 on 吴磊 with PID 12720 (started by 29216 in D:\IDEA\frame\testspring\springboot2_testbank)
+2021-04-24 19:46:21.686  INFO 12720 --- [main] c.w.service.impl.AccountServiceImplTest  : No active profile set, falling back to default profiles: default
+2021-04-24 19:46:25.685  INFO 12720 --- [main] c.w.service.impl.AccountServiceImplTest  : Started AccountServiceImplTest in 4.648 seconds (JVM running for 5.854)

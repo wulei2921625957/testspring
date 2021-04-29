@@ -1,12 +1,14 @@
 package com.wu.controller;
 
-import com.alibaba.druid.util.StringUtils;
 import com.wu.pojo.Accounts;
 import com.wu.pojo.OpTypes;
 import com.wu.service.AccountService;
+import com.wu.vo.AccountVO;
+import com.wu.vo.ResultVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,88 +18,119 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
+@Slf4j
 public class AccountController {
 
     @Autowired
     private AccountService accountService;
 
+
     /**
      * 开户
      *
-     * @param balance
-     * @return 开户后的账号ID
+     * @return 开户后的账号sFsID
      */
-    @RequestMapping("/openaccount/{balance}")
-    private String OpenAccount(@PathVariable("balance") String balance) {
-        Accounts accounts = new Accounts();
-        if (StringUtils.isEmpty(balance) || Double.valueOf(balance) < 0) {
-            return "参数不合法";
+    @RequestMapping(value = "/open/{money}", method = {RequestMethod.GET, RequestMethod.POST})
+    private ResultVO OpenAccount(AccountVO accountVO) {
+        ResultVO<Object> resultVO = new ResultVO<>();
+        try {
+            Accounts accounts = new Accounts();
+            Integer acountId = accountService.openAccount(accounts, Double.valueOf(accountVO.getMoney()));
+            accounts.setAccountId(acountId);
+            accounts.setBalance(accountVO.getMoney());
+            resultVO.setCode(1);
+            resultVO.setData(accounts);
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultVO.setCode(0);
+            resultVO.setMsg(e.getMessage());
         }
-        Integer acountId = accountService.openAccount(accounts, Double.valueOf(balance));
-        return "账号ID为：" + acountId;
+        return resultVO;
     }
 
     /**
      * 取钱
      *
-     * @param id
-     * @param money
      * @return
      */
-    @RequestMapping("/withdrawmoney/{id}/{money}")
-    private String withdrawMoney(@PathVariable("id") String id, @PathVariable("money") String money) {
-        Accounts accounts = new Accounts();
-        accounts.setAccountId(Integer.parseInt(id));
-        Accounts accounts1 = accountService.withdrow(accounts, OpTypes.withdraw.getName(), Double.valueOf(money), null);
-        return accounts1.toString();
+    @RequestMapping(value = "/withdraw/{AccountId}/{money}", method = {RequestMethod.GET, RequestMethod.POST})
+    private ResultVO withdrawMoney(AccountVO accountVO) {
+        ResultVO<Object> ro = new ResultVO<>();
+        try {
+            Accounts accounts = new Accounts();
+            accounts.setAccountId(accountVO.getAccountId());
+            Accounts accounts1 = accountService.withdrow(accounts, OpTypes.withdraw.getName(), Double.valueOf(accountVO.getMoney()), null);
+            ro.setCode(1);
+            ro.setData(accounts1);
+        } catch (Exception e) {
+            ro.setCode(0);
+            ro.setMsg(e.getMessage());
+        }
+        return ro;
     }
 
     /**
      * 存钱
      *
-     * @param id
-     * @param money
      * @return
      */
-    @RequestMapping("/savemoney/{id}/{money}")
-    private String saveMoney(@PathVariable("id") String id, @PathVariable("money") String money) {
-        Accounts accounts = new Accounts();
-        accounts.setAccountId(Integer.parseInt(id));
-        Accounts accounts1 = accountService.deposite(accounts, OpTypes.deposite.getName(), Double.valueOf(money), null);
-        return accounts1.toString();
+    @RequestMapping("/save/{AccountId}/{money}")
+    private ResultVO saveMoney(AccountVO accountVO) {
+        ResultVO<Object> ro = new ResultVO<>();
+        try {
+            Accounts accounts = new Accounts();
+            accounts.setAccountId(accountVO.getAccountId());
+            Accounts deposite = accountService.deposite(accounts, OpTypes.deposite.getName(), Double.valueOf(accountVO.getMoney()), null);
+            ro.setCode(1);
+            ro.setData(deposite);
+        } catch (Exception e) {
+            ro.setCode(0);
+            ro.setMsg(e.getMessage());
+        }
+        return ro;
     }
 
     /**
      * 交易
      *
-     * @param id1
-     * @param id2
-     * @param money
      * @return
      */
-    @RequestMapping("/tran/{id1}/{id2}/{money}")
-    private String transaction(@PathVariable("id1") String id1,
-                               @PathVariable("id2") String id2,
-                               @PathVariable("money") String money) {
-        Accounts a1 = new Accounts();
-        a1.setAccountId(Integer.parseInt(id1));
-        Accounts a2 = new Accounts();
-        a2.setAccountId(Integer.parseInt(id2));
-        Accounts transter = accountService.transter(a1, a2, Double.valueOf(money));
-        return transter.toString();
+    @RequestMapping(value = "/tran/{AccountId}/{money}/{inAccountId}", method = {RequestMethod.POST, RequestMethod.GET})
+    private ResultVO transaction(AccountVO accountVO) {
+        ResultVO<Object> ro = new ResultVO<>();
+        try {
+            Accounts a1 = new Accounts();
+            a1.setAccountId(accountVO.getAccountId());
+            Accounts a2 = new Accounts();
+            a2.setAccountId(accountVO.getInAccountId());
+            Accounts transter = accountService.transter(a2, a1, accountVO.getMoney());
+            ro.setCode(1);
+            ro.setData(transter);
+        } catch (Exception e) {
+            ro.setCode(0);
+            ro.setMsg(e.getMessage());
+        }
+        return ro;
     }
 
     /**
      * 查询账户
      *
-     * @param id
      * @return
      */
-    @RequestMapping("/show/{id}")
-    private String selectAccount(@PathVariable("id") Integer id) {
-        Accounts accounts = new Accounts();
-        accounts.setAccountId(id);
-        Accounts accounts1 = accountService.showBalance(accounts);
-        return accounts1.toString();
+    @RequestMapping(value = "/select/{AccountId}", method = {RequestMethod.GET, RequestMethod.POST})
+    private ResultVO selectAccount(AccountVO accountVO) {
+        ResultVO<Object> ro = new ResultVO<>();
+        try {
+            Accounts accounts = new Accounts();
+            accounts.setAccountId(accountVO.getAccountId());
+            Accounts accounts1 = accountService.showBalance(accounts);
+            ro.setCode(1);
+            ro.setData(accounts1);
+        } catch (Exception e) {
+            ro.setCode(0);
+            ro.setMsg(e.getMessage());
+        }
+        return ro;
     }
 }

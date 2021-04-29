@@ -20,7 +20,7 @@
 
     <properties>
         <!-- maven中一些属性,相当于环境变量 -->
-		<!-- maven中一些属性,相当于环境变量 -->
+        <!-- maven中一些属性,相当于环境变量 -->
         <spring.version>5.3.5</spring.version>
     </properties>
 

@@ -37,7 +37,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     private OpRecordDaoImpl opRecordDao;
-    private Object a;
 
     @Override
     public Integer openAccount(Accounts accounts, double money) {
@@ -77,7 +76,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Accounts transter(Accounts inAccount, Accounts outAccount, double money) {
         String s = UUID.randomUUID().toString();
-        deposite(inAccount, OpTypes.transfer.getName(), money, s);
+        deposite(inAccount, OpTypes.deposite.getName(), money, s);
         Accounts withdrow = withdrow(outAccount, OpTypes.withdraw.getName(), money, s);
         return withdrow;
     }
